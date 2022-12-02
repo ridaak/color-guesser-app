@@ -49,13 +49,13 @@ function App() {
       <div className="flex flex-col gap-4 wrapper w-full md:w-[800px] py-16 px-10">
         <div className="flex flex-col gap-8 justify-center items-center">
           <span className="uppercase tracking-wide text-4xl md:text-5xl font-black text-[#333333]">
-            Guess this color
+            Guess the color
           </span>
           <div className="flex justify-between items-center w-full">
-            <span className="uppercase tracking-wider text-xs font-black">
+            <span className="uppercase tracking-wide text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-4 py-2 font-semibold">
               Answered: {answered}
             </span>
-            <span className="uppercase tracking-wider text-xs font-black">
+            <span className="uppercase tracking-wide text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-4 py-2 font-semibold">
               Correct: {correct}
             </span>
           </div>
