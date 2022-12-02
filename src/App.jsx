@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { BsHandThumbsUp } from "react-icons/bs";
+import { FaRegThumbsUp } from "react-icons/fa";
+import { MdOutlineQuiz } from "react-icons/md";
 
 function App() {
   const [color, setColor] = useState(
@@ -53,13 +54,15 @@ function App() {
           </span>
           <div className="flex justify-between items-center w-full">
             <span className="flex gap-2 items-center">
-              <span>Answered</span>
+              <span>
+                <MdOutlineQuiz size={24} />
+              </span>
               <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
                 {answered}
               </span>
             </span>
             <span className="flex gap-2 items-center">
-              <BsHandThumbsUp size={24} />
+              <FaRegThumbsUp size={24} />
               <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
                 {correct}
               </span>
