@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BsHandThumbsUp } from "react-icons/bs";
 
 function App() {
   const [color, setColor] = useState(
@@ -29,7 +30,6 @@ function App() {
       .sort((a, b) => a.sort - b.sort)
       .map(({ value }) => value);
 
-    console.log(answers);
     setAnswers(answers);
   };
 
@@ -52,11 +52,17 @@ function App() {
             Guess the color
           </span>
           <div className="flex justify-between items-center w-full">
-            <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
-              Answered: {answered}
+            <span className="flex gap-2 items-center">
+              <span>Answered</span>
+              <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
+                {answered}
+              </span>
             </span>
-            <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
-              Correct: {correct}
+            <span className="flex gap-2 items-center">
+              <BsHandThumbsUp size={24} />
+              <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
+                {correct}
+              </span>
             </span>
           </div>
         </div>
