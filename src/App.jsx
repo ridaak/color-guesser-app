@@ -48,14 +48,14 @@ function App() {
     <div className="w-full h-screen flex justify-center items-center bg-[#F2F2F2]">
       <div className="flex flex-col gap-4 wrapper w-full md:w-[800px] py-16 px-10">
         <div className="flex flex-col gap-8 justify-center items-center">
-          <span className="uppercase tracking-wide text-4xl md:text-5xl font-black text-[#333333]">
+          <span className="uppercase tracking-wide text-4xl md:text-7xl font-black text-[#333333]">
             Guess the color
           </span>
           <div className="flex justify-between items-center w-full">
-            <span className="uppercase tracking-wide text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-4 py-2 font-semibold">
+            <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
               Answered: {answered}
             </span>
-            <span className="uppercase tracking-wide text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-4 py-2 font-semibold">
+            <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
               Correct: {correct}
             </span>
           </div>
