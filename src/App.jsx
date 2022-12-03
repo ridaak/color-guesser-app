@@ -52,22 +52,6 @@ function App() {
           <span className="uppercase tracking-wide text-4xl md:text-7xl font-black text-[#333333]">
             Guess the color
           </span>
-          <div className="flex justify-between items-center w-full">
-            <span className="flex gap-2 items-center">
-              <span>
-                <MdOutlineQuiz size={24} />
-              </span>
-              <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
-                {answered}
-              </span>
-            </span>
-            <span className="flex gap-2 items-center">
-              <FaRegThumbsUp size={24} />
-              <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
-                {correct}
-              </span>
-            </span>
-          </div>
         </div>
         <div
           style={{ backgroundColor: `${color}` }}
@@ -85,6 +69,26 @@ function App() {
               </button>
             );
           })}
+        </div>
+        <div className="flex justify-between items-center w-full">
+          <span className="flex gap-2 items-center">
+            <span>
+              <MdOutlineQuiz size={24} />
+            </span>
+            <span>You've answered</span>
+            <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
+              {answered}
+            </span>
+            <span>{answered !== 1 ? "questions" : "question"}</span>
+          </span>
+          <span className="flex gap-2 items-center">
+            <FaRegThumbsUp size={24} />
+            <span>You've guessed</span>
+            <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
+              {correct}
+            </span>
+            <span>correctly</span>
+          </span>
         </div>
       </div>
     </div>
