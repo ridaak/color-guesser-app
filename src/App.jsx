@@ -45,7 +45,7 @@ function App() {
       <div className="flex flex-col gap-4 wrapper w-full md:w-[800px] py-16 px-10">
         <div className="flex flex-col gap-8 justify-center items-center">
           <span className="uppercase tracking-wide text-4xl md:text-7xl font-black text-[#333333]">
-            Guess the color
+            Guess the color (updated)
           </span>
         </div>
         <div
