@@ -7,42 +7,37 @@ function App() {
     `#${Math.floor(Math.random() * 16777215).toString(16)}`
   );
   const [answers, setAnswers] = useState([]);
-  const [correct, setCorrect] = useState(0);
+  const [correctlyAnswered, setCorrectlyAnswered] = useState(0);
   const [answered, setAnswered] = useState(0);
 
   useEffect(() => {
-    createAnswers();
+    generateAnswers();
   }, [answered]);
 
-  const generateNewColor = () => {
-    setColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+  const nextQuestion = () => {
+    setAnswered((prev) => prev + 1); // increased answered count
+    setColor(generateRandomColor()); // generates new color
   };
 
-  const createAnswers = () => {
-    // generate 3 wrong answers and 1 correct answer
-    let answers = [
-      color,
-      `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-    ];
+  const generateRandomColor = () => {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  };
 
-    // re-shuffle all answers so the correct answer is not always the first one
-    answers = answers
+  const generateAnswers = () => {
+    // re-shuffles answers in array (array contains correct answer and random answer)
+    let answers = [color, generateRandomColor()]
       .map((value) => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
       .map(({ value }) => value);
-
-    setAnswers(answers);
+    setAnswers(answers); // saves answers in state
   };
 
   const handleClickedAnswer = (answer) => {
     if (answer === color) {
-      setCorrect((prev) => prev + 1);
-      setAnswered((prev) => prev + 1);
-      generateNewColor();
-    } else {
-      setAnswered((prev) => prev + 1);
-      generateNewColor();
+      setCorrectlyAnswered((prev) => prev + 1); // increments correct counter
+      nextQuestion();
     }
+    return nextQuestion();
   };
 
   return (
@@ -55,9 +50,9 @@ function App() {
         </div>
         <div
           style={{ backgroundColor: `${color}` }}
-          className="w-full h-[350px] rounded-sm shadow-md border"
+          className="w-full h-[350px] rounded-sm shadow-md border border-[#c8c8c8]"
         ></div>
-        <div className="answers grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {answers.map((answer, index) => {
             return (
               <button
@@ -85,7 +80,7 @@ function App() {
             <FaRegThumbsUp size={24} />
             <span>You've guessed</span>
             <span className="uppercase text-xs bg-[#e7e7e7] border border-[#c8c8c8] rounded-full px-3 py-1 font-semibold">
-              {correct}
+              {correctlyAnswered}
             </span>
             <span>correctly</span>
           </span>
